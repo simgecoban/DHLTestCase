@@ -1,0 +1,13 @@
+.phoneNumber p {
+    font-style: italic;
+    font-size: .8rem;
+    margin: 0;
+}
+.phoneNumber>.secondDiv {
+    margin-bottom: 1rem;
+   
+}
+
+.phoneNumber {
+    text-align:center ;
+}

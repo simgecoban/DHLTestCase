@@ -1,38 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+
+
+}
+
 .App {
-  text-align: center;
+  background-color: lightgray;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+  width: 10%;
+  height: 5%;
+  margin-left: 110px;
+  margin-top: 25px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2rem;
+ 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title {
+  background: white;
+  margin-top: 50px;
+  padding-top: 12px;
+  padding-left: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  
+}
+
+.getPeople {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: white;
+  height: 100px;
+  padding: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.getPeople>.txtField {
+  width: 50%;
+  margin-right: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.getPeople>.btnFetch {
+  width: 50%;
+}
+
+.search {
+  background: white;
+  margin-top: 40px;
+  padding-top: 12px;
+  padding-left: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 15px;
+  height: 50px;
+
+}
+
+
+@media (max-width: 800px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+
+  .title{
+    margin-top: 300px;
+  }
+
+
+}
+
+@media (max-width: 500px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    width: 50%;
+    height: 100px;
+    object-fit: cover;
   }
 }
+
