@@ -14,23 +14,26 @@ function App() {
   const [users, setUsers] = useState([]);
   const [userNumber, setUserNumber] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      let userData;
-      try {
-        const response = await fetch(`https://randomuser.me/api/?results=${userNumber}`);
-        userData = await response.json();
-
-      } catch (error) {
-        console.log(error);
-        userData = [];
-      }
+  async function fetchData() {
+    let userData;
+    try {
+      // get the data from the api
+      const response = await fetch(`https://randomuser.me/api/?results=${userNumber}`);
+      // convert the data to json
+      userData = await response.json();
       setAllUsers(userData.results);
       setUsers(userData.results);
+    } catch (error) {
+      console.error(error);
+      userData = [];
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
 
 
-    })();
-  }, [userNumber]);
 
   const filterCards = event => {
     const value = event.target.value.toLowerCase();
@@ -44,11 +47,6 @@ function App() {
 
   };
 
-  const handleClick = event => {
-    event.preventDefault();
-
-
-  };
 
 
 
@@ -63,8 +61,8 @@ function App() {
       <div className='getPeople'>
 
 
-        <TextField className='txtField' name='field' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} id="outlined-basic" ariant="outlined" onChange={handleChange} onInput={''} type='number' value={userNumber}></TextField>
-        <Button className='btnFetch' onClick={handleClick} variant='contained' startIcon={<SendIcon />} color='primary' size='medium' > FETCH USERS </Button>
+        <TextField className='txtField' name='field' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} id="outlined-basic" ariant="outlined" onChange={handleChange} type='number' value={userNumber}></TextField>
+        <Button className='btnFetch' onClick={fetchData} variant='contained' startIcon={<SendIcon />} color='primary' size='medium' > FETCH USERS </Button>
 
       </div>
 

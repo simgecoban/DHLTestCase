@@ -81,6 +81,12 @@ body {
 
 }
 
+.search-box {
+  width: 90%;
+  border: 1px solid snow;
+  outline: none;
+}
+
 
 @media (max-width: 800px) {
   .cards-container {
